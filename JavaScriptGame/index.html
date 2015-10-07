@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Javascript Game</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="content-type" content="text/html"; charset="utf-8"/>
+    <meta name="viewport" content="width=device-width", initial-scale=1/>
+    <style>
+        
+        
+    #box {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        display: none;
+        position: relative;
+    }
+    
+    body {
+        background-image: url("http://www.blastr.com/sites/blastr/files/star_wars_vii-02.jpg");
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size:cover;
+        height: 900px;
+        
+    }
+        @font-face {
+            font-family: huntress;
+            src: url(huntress.otf);
+        }
+        @font-face {
+         font-family: jedi;
+            src: url(Starjhol.ttf);
+        }
+      
+    p {
+      font-family: huntress;
+    color: aqua;
+        font-size: 100px;
+        position: relative;
+        top:50px;
+        left:300px;
+    }
+        
+        #time {
+           font-family: huntress;
+           color:#AA2406;
+            font-size: 100px;
+            
+        }
+        h1{
+         font-family: huntress;
+            font-size: 100px;
+            color:#ACE7B1;
+            text-align: center;
+            
+        }
+        iframe{
+         float:right;
+            width: 200px;
+            height: 200px;
+        }
+    
+    </style>
+    
+    
+    
+    </head>
+<body>
+    <h1>Test Your Reflex Time This side of The Empire</h1>
+    <p>Your time: <span id="time"></span></p>
+    <div id="box"></div>
+    <iframe src="candy-crush-invite.png"></iframe>
+    
+    
+    
+  <script type="text/javascript">
+        
+        function getRandomColor(){
+            
+            var letters = '0123456789ABCDEF'.split('');
+            var color = '#';
+            for (var i = 0; i < 6; i++ ) {
+               color += letters[Math.round(Math.random() * 15)];   
+            }
+            return color;
+        }
+        
+        var clickedTime;
+        var createdTime;
+        var reactionTime;
+     function makeBox(){
+         createdTime = Date.now();
+          var time = Math.random();
+        time=time*5000;
+          setTimeout(function () {
+              if(Math.random() > 0.5){
+                  document.getElementById("box").style.borderRadius = "100px";
+              }else{
+                  document.getElementById("box").style.borderRadius = "0";   
+              }
+              var top = Math.random();
+              top=top*300;
+              var left = Math.random();
+              left=left*500;
+                  document.getElementById("box").style.top=top+"px";
+                  document.getElementById("box").style.left=left+"px";
+                  document.getElementById("box").style.backgroundColor=getRandomColor();
+                  document.getElementById("box").style.display="block";
+         },time);
+     }
+        
+        
+    document.getElementById("box").onclick = function() {
+        clickedTime = Date.now();
+        reactionTime = (clickedTime - createdTime) / 1000;
+        document.getElementById("time").innerHTML=reactionTime;
+        document.getElementById("box").style.display="none"; 
+        makeBox();
+    }
+    
+   makeBox();
+    
+    </script>
+    
+    
+    
+    </body>
+</html>
