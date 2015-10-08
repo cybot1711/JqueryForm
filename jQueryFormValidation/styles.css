@@ -1,0 +1,33 @@
+#wrapper {
+    width: 600px;
+    margin: 0 auto;
+    font-family: monospace;
+    font-size: 1.2em;
+    
+    
+}
+input {
+    width; 200px;
+    height: 40px;
+    border-radius: 6px;
+    padding: 5px;
+    font-size: 1.2em;
+    box-shadow: 10px 10px 5px #888888;
+    margin-bottom: 7px;
+}
+
+label {
+    width: 200px;
+    float: left;
+    padding-top: 9px;
+}
+
+#mit {
+    
+    margin-top: 20px;
+    margin-left: 200px;
+}
+
+#error {
+    color: red;
+}
